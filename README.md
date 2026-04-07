@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![claude-code](https://img.shields.io/badge/claude--code-black?style=flat-square)](https://claude.ai/code)
-[![ai-agents](https://img.shields.io/badge/ai--agents-5C6BC0?style=flat-square)](#)
-[![knowledge-management](https://img.shields.io/badge/knowledge--management-2E7D32?style=flat-square)](#)
-[![second-brain](https://img.shields.io/badge/second--brain-6D4C41?style=flat-square)](#)
+![ai-agents](https://img.shields.io/badge/ai--agents-5C6BC0?style=flat-square)
+![knowledge-management](https://img.shields.io/badge/knowledge--management-2E7D32?style=flat-square)
+![second-brain](https://img.shields.io/badge/second--brain-6D4C41?style=flat-square)
 
 A starter kit for building a living knowledge system for Claude Code agents. Based on a production system running since early 2026.
 
@@ -48,7 +48,7 @@ This repository gives you the architecture. You supply the knowledge.
 
 The INDEX is the agent's routing layer. It maps task types to files and ensures the agent doesn't preload everything speculatively. Every conversation starts here.
 
-The rule: never more than 4 files loaded for a standard task. Knowledge scales without context bloat.
+The rule: 3-4 files for a standard task, 5-6 for complex multi-step work. Knowledge scales without context bloat.
 
 ### 2. Reasoning — How It Routes
 
@@ -70,7 +70,7 @@ The rule: no silent rule updates. New evidence becomes a hypothesis first. Hypot
 
 ### 4. Immunity — Rejected Hypotheses as Institutional Memory
 
-**File:** `knowledge/hypotheses/index.md` (rejected section)
+**File:** `knowledge/hypotheses/rejected.md`
 
 The rejected hypotheses log is the system's immune system. When something doesn't work — despite seeming like it should — that goes in the log. The system doesn't repeat the same experiments. It doesn't calcify around disproven rules.
 
@@ -82,20 +82,21 @@ The false belief you've already tested is the most expensive one to re-test.
 
 ```bash
 # 1. Clone
-git clone https://github.com/pawelhuryn/agent-second-brain
+git clone https://github.com/phuryn/agent-second-brain
 cd agent-second-brain
 
 # 2. Fill in your identity
-# Edit CLAUDE.md — replace all [BRACKETS] with your specifics
-# Takes ~10 minutes. Don't skip this.
+# Open Claude Code in this directory. The agent will detect empty brackets
+# and walk you through setup automatically (First Run onboarding).
+# Or edit CLAUDE.md manually — replace all [BRACKETS] with your specifics.
 
 # 3. Start using it
 # Open Claude Code. The agent will load knowledge/INDEX.md at conversation start.
 # Add knowledge files as your system grows. Update INDEX.md routing when you do.
 
 # 4. Run the diagnostic regularly
-# Run weekly, or when the system feels off (agent loading too many files,
-# contradicting rules, hypotheses stuck at "active" for months).
+# The diagnostic script is in knowledge/system-maintenance.md — save it as
+# knowledge/system-maintenance.sh, then run weekly or when the system feels off.
 bash knowledge/system-maintenance.sh
 ```
 
@@ -108,12 +109,13 @@ See `examples/` for filled-in systems showing how different roles use this struc
 ```
 agent-second-brain/
 ├── README.md
-├── CLAUDE.md                          # Identity + routing template — fill in the brackets
+├── CLAUDE.md                          # Identity, routing, procedures, constraints
 ├── knowledge/
 │   ├── INDEX.md                       # Master routing file — always load first
 │   ├── system-maintenance.md          # Diagnostic script + hygiene rules
 │   └── hypotheses/
 │       ├── index.md                   # Hypothesis tracking + graduation schema
+│       ├── rejected.md                # Immune memory — beliefs proven wrong
 │       └── EXAMPLE.md                 # Reference — shows schema at each lifecycle stage
 └── examples/
     ├── software-engineer/             # Backend engineer: code review, architecture, bug analysis
@@ -121,7 +123,7 @@ agent-second-brain/
     └── ops-engineer/                  # SRE: incident response, runbooks, system health
 ```
 
-Each example contains a filled-in `CLAUDE.md` and `knowledge/INDEX.md` — just enough to show how the structure adapts to a specific role.
+Each example contains a filled-in `CLAUDE.md` with role-specific procedures, domain knowledge files, populated hypotheses (active, graduated, and rejected), and routing — a complete working system you can copy as a starting point.
 
 ---
 
@@ -135,17 +137,17 @@ It's a structure. You bring the knowledge. The system gives it somewhere to live
 
 ## Full Article
 
-A detailed walkthrough of the architecture — why it's built this way and what problems it solves — is published as a Substack article:
+A detailed walkthrough of the architecture — why it's built this way and what problems it solves:
 
-**[Link — coming soon]**
+**[X post — link coming soon]**
 
 ---
 
 ## Credit
 
-Built by Pawel Huryn (Product Compass). Based on a production system running since early 2026.
+Built by Pawel Huryn (The Product Compass Newsletter). Based on a production system running since early 2026.
 
-First published as a Substack article in April 2026.
+First published March 16, 2026. Link: https://www.productcompass.pm/p/self-improving-claude-system
 
 ---
 
