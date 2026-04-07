@@ -40,41 +40,18 @@ This repository gives you the architecture. You supply the knowledge.
 
 ---
 
-## The Four Cognitive Components
+## Four Cognitive Components
 
-### 1. Perception — What the Agent Loads
+The system addresses four capabilities most agent setups are missing:
 
-**Files:** `CLAUDE.md` + `knowledge/INDEX.md`
+| Component | What it does | Key file |
+|-----------|-------------|----------|
+| **Perception** | Loads only what the task needs (3-4 files standard, 5-6 complex) | `INDEX.md` |
+| **Reasoning** | Routes task types to the right knowledge files | `CLAUDE.md` routing table |
+| **Learning** | Tests hypotheses, graduates them to rules with 3+ data points | `hypotheses/index.md` |
+| **Immunity** | Logs rejected beliefs so the agent never re-tests them | `hypotheses/rejected.md` |
 
-The INDEX is the agent's routing layer. It maps task types to files and ensures the agent doesn't preload everything speculatively. Every conversation starts here.
-
-The rule: 3-4 files for a standard task, 5-6 for complex multi-step work. Knowledge scales without context bloat.
-
-### 2. Reasoning — How It Routes
-
-**File:** `knowledge/INDEX.md` (routing table)
-
-Routing connects task type to the right knowledge. As your system grows, you add files and add rows to the routing table. The INDEX stays the single source of truth for what gets loaded when.
-
-The rule: if a task doesn't fit existing routing, flag it — don't load speculatively. Unrouted tasks are signals that the system needs a new file or the task is out of scope.
-
-### 3. Learning — Hypotheses That Graduate to Rules
-
-**Files:** `knowledge/hypotheses/index.md`
-
-Hypotheses are things you're testing — not yet rules, but not random guesses. They need three things: a precise statement, a falsification condition, and a data log.
-
-When a hypothesis accumulates 3+ supporting data points with no strong counter-examples, it graduates to a rule in the relevant knowledge file. When it gets 2+ counter-examples, it gets rejected and archived.
-
-The rule: no silent rule updates. New evidence becomes a hypothesis first. Hypotheses graduate through evidence, not conviction.
-
-### 4. Immunity — Rejected Hypotheses as Institutional Memory
-
-**File:** `knowledge/hypotheses/rejected.md`
-
-The rejected hypotheses log is the system's immune system. When something doesn't work — despite seeming like it should — that goes in the log. The system doesn't repeat the same experiments. It doesn't calcify around disproven rules.
-
-The false belief you've already tested is the most expensive one to re-test.
+New evidence becomes a hypothesis first. Hypotheses graduate through evidence, not conviction. The false belief you've already tested is the most expensive one to re-test.
 
 ---
 
@@ -94,10 +71,6 @@ cd agent-second-brain
 # Open Claude Code. The agent will load knowledge/INDEX.md at conversation start.
 # Add knowledge files as your system grows. Update INDEX.md routing when you do.
 
-# 4. Run the diagnostic regularly
-# The diagnostic script is in knowledge/system-maintenance.md — save it as
-# knowledge/system-maintenance.sh, then run weekly or when the system feels off.
-bash knowledge/system-maintenance.sh
 ```
 
 See `examples/` for filled-in systems showing how different roles use this structure. Copy one as a starting point if it matches your role.
@@ -137,9 +110,7 @@ It's a structure. You bring the knowledge. The system gives it somewhere to live
 
 ## Full Article
 
-A detailed walkthrough of the architecture — why it's built this way and what problems it solves:
-
-**[X post — link coming soon]**
+**[Karpathy Built a Second Brain for Humans. Here's One for Your AI Agent.](https://x.com/PawelHuryn/status/2041519394254176581)**
 
 ---
 
@@ -153,6 +124,5 @@ First published March 16, 2026. Link: https://www.productcompass.pm/p/self-impro
 
 ## Contributing
 
-If you adapt this for a specific domain and want to share your example, open a PR adding a folder under `examples/`. Keep it minimal: a filled-in `CLAUDE.md` and a `knowledge/INDEX.md` showing your knowledge tree.
-
-Bugs, broken schemas, or confusing file names — open an issue.
+Issues and PRs welcome. If you build an example for a new role, submit it.
+
