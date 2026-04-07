@@ -1,0 +1,4 @@
+date,platform,title_or_hook,topic,angle,format,performance_score,notes
+YYYY-MM-DD,linkedin,"[First line or title]","[Topic tag — e.g., 'product strategy']","[Angle — e.g., 'contrarian take']","[Format — e.g., 'long-form / thread / short post']","[Score or metric — e.g., '4.2' on a 1-5 scale, or raw numbers]","[Notes — what worked, what didn't, anomalies]"
+YYYY-MM-DD,newsletter,"[Subject line]","[Topic tag]","[Angle]","[Format]","[Open rate %]","[Notes]"
+YYYY-MM-DD,twitter,"[First tweet text]","[Topic tag]","[Angle]","[Thread / single]","[Impressions]","[Notes]"
