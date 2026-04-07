@@ -1,5 +1,11 @@
 # Agent Second Brain
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![claude-code](https://img.shields.io/badge/claude--code-black?style=flat-square)](https://claude.ai/code)
+[![ai-agents](https://img.shields.io/badge/ai--agents-5C6BC0?style=flat-square)](#)
+[![knowledge-management](https://img.shields.io/badge/knowledge--management-2E7D32?style=flat-square)](#)
+[![second-brain](https://img.shields.io/badge/second--brain-6D4C41?style=flat-square)](#)
+
 A starter kit for building a living knowledge system for Claude Code agents. Based on a production system running since early 2026.
 
 Clone it. Fill in your identity. Start building.
