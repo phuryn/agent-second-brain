@@ -30,6 +30,37 @@ Do not load everything. Load only what the task requires.
 
 ---
 
+# Procedures
+
+### Active Incident Triage
+
+1. Load `knowledge/incident-patterns.md` and the relevant service runbook from `knowledge/runbooks/`.
+2. Check if the incident matches a known pattern from `incident-patterns.md` — if yes, follow the known mitigation immediately.
+3. If no pattern match: run the quick diagnosis checklist from the service runbook.
+4. During an active incident: speed over completeness. State what you know, what you don't, and what you're trying next.
+5. Every recommendation must include a rollback step. Never suggest a change without explaining how to undo it.
+6. After resolution, flag any gaps for post-incident review.
+
+### Post-Incident Review
+
+1. Load `knowledge/incident-patterns.md` and `knowledge/health-baselines.md`.
+2. Classify the incident: was it a known pattern, a variant of a known pattern, or entirely new?
+3. If new pattern (2+ occurrences now), add it to `incident-patterns.md`.
+4. Check if health baselines need updating based on what the incident revealed.
+5. If a hypothesis was tested by the incident (confirmed or refuted), update `knowledge/hypotheses/index.md`.
+
+### Ingest New Knowledge
+
+When given post-mortems, runbook updates, or monitoring data:
+
+1. Read the material fully before extracting anything.
+2. Extract patterns into `incident-patterns.md`, baselines into `health-baselines.md`, or procedures into the relevant runbook.
+3. Note anything uncertain as a hypothesis in `knowledge/hypotheses/index.md`.
+4. If the material covers a new service, create a new runbook in `knowledge/runbooks/`, add it to `knowledge/INDEX.md`, add a routing entry in the Workflow Routing table, and add a procedure if the service has a repeatable triage workflow.
+5. Summarize what was added.
+
+---
+
 # Output Standards
 
 - Audience: **On-call engineers and platform team leads**

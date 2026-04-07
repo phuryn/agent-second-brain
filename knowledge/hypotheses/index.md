@@ -63,7 +63,7 @@ Rejection process:
 
 ## Graduated Hypotheses
 
-*(Hypotheses that became rules. Kept here for traceability.)*
+*(Hypotheses that became rules. Kept here as one-line stubs for traceability. Full evidence moves to the target knowledge file. Archive stubs older than 6 months to `hypotheses/archive.md` — see `system-maintenance.md`.)*
 
 ### HYP-[N]
 **Statement:** [Original hypothesis]

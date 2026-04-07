@@ -29,6 +29,38 @@ Do not load everything. Load only what the task requires.
 
 ---
 
+# Procedures
+
+### Experiment Design
+
+1. Load `knowledge/methodology-notes.md` (Step 0 — always before designing experiments).
+2. State the hypothesis being tested. Check `knowledge/hypotheses/index.md` — is this already tracked?
+3. Check methodology pitfalls in `methodology-notes.md` — ensure the design avoids known failure modes.
+4. Define success criteria before running anything: what metric, what threshold, what would falsify the hypothesis.
+5. Specify controls: what's held constant, what's varied, what confounders exist.
+6. Include validation step: how will results be verified (e.g., MD run for static predictions, confidence intervals for estimates).
+7. Flag if the experiment requires compute >24h — suggest a smaller pilot first.
+
+### Literature Review
+
+1. Load `knowledge/literature-map.md`.
+2. Start with the core papers listed — identify how the new paper connects to or contradicts them.
+3. Check for gaps listed in `literature-map.md` — does the new paper address any?
+4. Add the paper to `literature-map.md` with: citation, key contribution, how it connects to existing work, and any new gaps it reveals.
+5. If findings contradict existing methodology rules, create a hypothesis — don't update rules directly.
+
+### Ingest New Knowledge
+
+When given new papers, data, or experimental results:
+
+1. Read the material fully before extracting anything.
+2. Add findings to the relevant knowledge file (`literature-map.md` or `methodology-notes.md`).
+3. Note anything uncertain as a hypothesis in `knowledge/hypotheses/index.md`.
+4. If the material opens a new research area, create a new file, add it to `knowledge/INDEX.md`, add a routing entry in the Workflow Routing table, and add a procedure if the area has a repeatable workflow.
+5. Summarize what was added.
+
+---
+
 # Output Standards
 
 - Audience: **Research team and collaborators (PhD-level readers)**

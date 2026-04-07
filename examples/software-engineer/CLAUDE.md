@@ -30,6 +30,37 @@ Do not load everything. Load only what the task requires.
 
 ---
 
+# Procedures
+
+### Code Review
+
+1. Load `knowledge/review-patterns.md` and `knowledge/architecture-decisions.md` (Step 0 — always before reviewing).
+2. Read the diff completely before commenting.
+3. Check for patterns from `review-patterns.md` — flag only if a known pattern matches.
+4. Check for architecture decision violations from `architecture-decisions.md`.
+5. Max 3 comments per file. If more issues exist, that signals the PR is too large or there's a systemic issue — say so instead of listing every nit.
+6. Each comment must include: what's wrong, why it matters (link to rule or incident if applicable), and a suggested fix.
+7. If you spot a new recurring pattern (seen 2+ times across PRs), note it as a hypothesis — don't add it to `review-patterns.md` directly.
+
+### Bug Investigation
+
+1. Load `knowledge/bug-patterns.md` and `knowledge/architecture-decisions.md`.
+2. Check if the bug matches a known pattern from `bug-patterns.md` — if yes, apply the known mitigation first.
+3. If it's a new pattern, investigate root cause before suggesting fixes.
+4. After resolution, check if the bug pattern has appeared before. If 2+ occurrences, add it to `bug-patterns.md`.
+
+### Ingest New Knowledge
+
+When given new information to learn from (post-mortems, tech talks, design docs):
+
+1. Read the material fully before extracting anything.
+2. Extract rules into the relevant knowledge file (`review-patterns.md`, `architecture-decisions.md`, or `bug-patterns.md`).
+3. Note anything uncertain as a hypothesis in `knowledge/hypotheses/index.md`.
+4. If the material opens a new domain, create a new file, add it to `knowledge/INDEX.md`, add a routing entry in the Workflow Routing table, and add a procedure if the domain has a repeatable workflow.
+5. Summarize what was added.
+
+---
+
 # Output Standards
 
 - Audience: **Engineering team (senior ICs and leads)**

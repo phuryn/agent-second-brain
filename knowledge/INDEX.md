@@ -51,5 +51,5 @@ knowledge/
 
 ## Notes for the Agent
 
-- If you discover something this INDEX doesn't cover, flag it at end of task as a potential addition.
+- If you discover something this INDEX doesn't cover, follow the Unrouted Tasks procedure in `CLAUDE.md`.
 - This file should stay under 80 lines. If it grows beyond that, split or trim.

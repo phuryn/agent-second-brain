@@ -93,11 +93,13 @@ cd agent-second-brain
 # Open Claude Code. The agent will load knowledge/INDEX.md at conversation start.
 # Add knowledge files as your system grows. Update INDEX.md routing when you do.
 
-# 4. Run the diagnostic periodically
+# 4. Run the diagnostic regularly
+# Run weekly, or when the system feels off (agent loading too many files,
+# contradicting rules, hypotheses stuck at "active" for months).
 bash knowledge/system-maintenance.sh
 ```
 
-See `examples/` for filled-in systems showing how different roles use this structure.
+See `examples/` for filled-in systems showing how different roles use this structure. Copy one as a starting point if it matches your role.
 
 ---
 
