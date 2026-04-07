@@ -41,7 +41,7 @@ A hypothesis is rejected when:
 
 Rejection process:
 1. Mark as "rejected" here
-2. If the counter-evidence is interesting, archive it with a note
+2. Move to `rejected.md` with the evidence that killed it
 3. If the rejection is surprising, note why in the entry
 
 ---

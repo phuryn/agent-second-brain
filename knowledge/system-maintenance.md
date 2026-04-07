@@ -43,6 +43,19 @@ Before adding any new file, ask:
 
 If any answer is "no," don't add the file. Add a note to an existing file instead.
 
+### When Hypotheses Outgrow a Single File
+
+A single `hypotheses/index.md` works for the first 10-15 hypotheses. Beyond that, reorganize:
+
+1. **Split by domain.** Create `hypotheses/[domain].md` files (e.g., `hypotheses/api-design.md`, `hypotheses/performance.md`). Each file holds hypotheses for one domain.
+2. **Keep `hypotheses/index.md` as the router.** It becomes a table of contents linking to domain files, not a container for individual hypotheses.
+3. **Update INDEX.md routing.** The main INDEX.md should route to specific hypothesis domain files, not load all of them.
+4. **Split `rejected.md` the same way** if it grows beyond 20 entries.
+
+The same pattern applies to rules: when `rules.md` serves multiple contexts, split it by domain. One file per context keeps loading efficient.
+
+Update CLAUDE.md routing table whenever you split. The agent should never need to guess which hypothesis file to load.
+
 ---
 
 ## Diagnostic Script

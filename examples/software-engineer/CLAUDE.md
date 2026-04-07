@@ -20,10 +20,10 @@ Based on the task, load the relevant files **in addition** to the INDEX:
 
 | Task type | Load these files |
 |-----------|-----------------|
-| Code review | `knowledge/review-patterns.md` |
+| Code review | `knowledge/review-patterns.md`, `knowledge/architecture-decisions.md` |
+| Investigate a bug | `knowledge/bug-patterns.md`, `knowledge/architecture-decisions.md` |
 | Architecture proposal | `knowledge/architecture-decisions.md` |
-| Bug autopsy / incident analysis | `knowledge/bug-patterns.md` |
-| Hypothesis review | `knowledge/hypotheses/index.md` |
+| Review / test a hypothesis | `knowledge/hypotheses/index.md` |
 | System maintenance | `knowledge/system-maintenance.md` |
 
 Do not load everything. Load only what the task requires.
@@ -32,10 +32,10 @@ Do not load everything. Load only what the task requires.
 
 # Output Standards
 
-- Audience: Engineering team (8 engineers, 2 senior, 1 staff)
-- Quality bar: Precise, actionable, evidence-backed
-- Avoid: Nitpicking style over substance; flagging issues without suggesting a fix; architecture opinions without tradeoffs
-- Default scope: Code review comments are concise (1-3 sentences); architecture proposals cover tradeoffs, not implementation detail
+- Audience: **Engineering team (senior ICs and leads)**
+- Quality bar: **Precise, actionable, evidence-backed**
+- Avoid: **Vague warnings without data, style-only nits in reviews, premature abstraction suggestions**
+- Default scope: **Review comments max 3 per file unless systemic; architecture proposals max 1 page**
 
 ---
 

@@ -1,6 +1,6 @@
 # Knowledge INDEX
 
-**How to use this file:** Read completely at conversation start. Load only what the task requires.
+**How to use this file:** This is the routing layer. Read it completely at conversation start. Then load only the files relevant to the current task. Do not preload everything — context budgets matter.
 
 ---
 
@@ -8,16 +8,16 @@
 
 ```
 knowledge/
-├── INDEX.md                      ← YOU ARE HERE (always load)
-├── system-maintenance.md         ← Load when: auditing the knowledge system
+├── INDEX.md                       ← YOU ARE HERE (always load)
+├── system-maintenance.md          ← Load when: auditing or maintaining the knowledge system
+├── review-patterns.md             ← Load when: reviewing PRs or analyzing review feedback
+├── architecture-decisions.md      ← Load when: proposing or evaluating architecture changes
+├── bug-patterns.md                ← Load when: investigating bugs or post-incident analysis
 │
-├── hypotheses/
-│   ├── index.md                  ← Load when: reviewing or graduating a hypothesis
-│   └── EXAMPLE.md                ← Reference only
-│
-├── review-patterns.md            ← Load when: doing a code review
-├── architecture-decisions.md     ← Load when: evaluating or proposing system design
-└── bug-patterns.md               ← Load when: doing a bug autopsy or incident analysis
+└── hypotheses/
+    ├── index.md                   ← Load when: reviewing what's being tested, or graduating a hypothesis
+    ├── EXAMPLE.md                 ← Reference only — shows the schema
+    └── rejected.md                ← Immune memory — beliefs proven wrong
 ```
 
 ---
@@ -26,24 +26,25 @@ knowledge/
 
 | Task | Files to load (beyond this INDEX) |
 |------|-----------------------------------|
-| Code review | `review-patterns.md` |
-| Architecture proposal / evaluation | `architecture-decisions.md` |
-| Bug autopsy / post-incident | `bug-patterns.md` |
-| Hypothesis review | `hypotheses/index.md` |
+| Code review | `review-patterns.md`, `architecture-decisions.md` |
+| Bug investigation | `bug-patterns.md`, `architecture-decisions.md` |
+| Architecture proposal | `architecture-decisions.md` |
+| Review active hypotheses | `hypotheses/index.md` |
 | Audit knowledge system | `system-maintenance.md` |
 
 ---
 
 ## Load-on-Demand Rules
 
-1. Never load more than 4 knowledge files at once.
-2. `bug-patterns.md` and `architecture-decisions.md` are dense — load only when the task requires them directly.
+1. **Never load more than 4 knowledge files at once** unless the task explicitly requires it.
+2. **Expand this INDEX as your system grows** — add rows to the table above and entries to the directory map.
+3. If a task doesn't fit any routing above, flag it and ask before loading speculatively.
 
 ---
 
 ## System Status
 
 > **Last maintained:** 2026-03-15
-> **Active hypotheses:** 3 — see `hypotheses/index.md`
-> **Domains covered:** API design, distributed systems, code review
-> **Next maintenance due:** 2026-04-15
+> **Active hypotheses:** 2 — see `hypotheses/index.md`
+> **Domains covered:** code review, architecture, bug patterns
+> **Next maintenance due:** When active hypotheses exceed 10 or any file exceeds 400 lines

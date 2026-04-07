@@ -13,6 +13,7 @@ knowledge/
 │
 ├── hypotheses/
 │   ├── index.md                ← Load when: reviewing what's being tested, or graduating a hypothesis
+│   ├── rejected.md             ← Load when: checking known false beliefs before starting work
 │   └── EXAMPLE.md              ← Reference only — shows the schema
 │
 └── [your-files]                ← Add domain-specific files here as your system grows
@@ -25,6 +26,7 @@ knowledge/
 | Task | Files to load (beyond this INDEX) |
 |------|-----------------------------------|
 | Review active hypotheses | `hypotheses/index.md` |
+| Check known false beliefs | `hypotheses/rejected.md` |
 | Audit knowledge system | `system-maintenance.md` |
 | [Add your task types here] | [Add your files here] |
 

@@ -21,6 +21,7 @@ Based on the task, load the relevant files **in addition** to the INDEX:
 | Task type | Load these files |
 |-----------|-----------------|
 | Review / test a hypothesis | `knowledge/hypotheses/index.md` |
+| Check known false beliefs | `knowledge/hypotheses/rejected.md` |
 | System maintenance | `knowledge/system-maintenance.md` |
 | Domain-specific work | `knowledge/[relevant-file].md` (if it exists) |
 
@@ -58,3 +59,4 @@ Do not load everything. Load only what the task requires.
 - Identity + routing: `CLAUDE.md` (this file) → `knowledge/INDEX.md`
 - Learning loop: `knowledge/hypotheses/index.md`
 - System health: `knowledge/system-maintenance.md`
+- Immune memory: `knowledge/hypotheses/rejected.md`
