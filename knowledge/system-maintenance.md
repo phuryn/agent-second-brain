@@ -20,17 +20,17 @@ The system is designed to load minimally. These rules enforce that.
 
 Split a file when any of these are true:
 - It exceeds 400 lines
-- It serves two distinct purposes (sign: two different tasks both load it for different reasons)
+- It serves two distinct purposes (sign: two different task types both load it for different reasons)
 - Loading it always requires reading less than 50% of its content
 
 When you split, update INDEX.md immediately.
 
 ### When to Archive
 
-Archive (move to `archive/` subfolder) rather than delete when:
-- A platform is no longer active but may return
+Archive (move to an `archive/` subfolder) rather than delete when:
+- A knowledge area is no longer active but may return
 - A hypothesis is rejected but the evidence log is worth keeping
-- A topic file hasn't been loaded in 60+ days
+- A file hasn't been loaded in 60+ days
 
 Never delete without archiving. The cost of archiving is near zero; the cost of losing institutional memory is high.
 
@@ -88,8 +88,6 @@ echo ""
 echo "Checking for orphan files (not referenced in INDEX.md)..."
 ORPHANS=0
 while IFS= read -r -d '' file; do
-  # Get filename without path prefix
-  rel_path="${file#$KNOWLEDGE_DIR/}"
   filename=$(basename "$file" .md)
   if ! grep -q "$filename" "$INDEX" 2>/dev/null; then
     echo "  ⚠ ORPHAN: $file"
@@ -119,12 +117,12 @@ Save this as `knowledge/system-maintenance.sh` and run with `bash knowledge/syst
 
 ---
 
-## Maintenance Checklist (Run Monthly)
+## Maintenance Checklist
 
 - [ ] Run the diagnostic script above
 - [ ] Review active hypotheses — graduate or reject anything with 3+ data points
 - [ ] Check INDEX.md routing is still accurate
-- [ ] Archive any platform that hasn't been used in 60+ days
+- [ ] Archive any knowledge area that hasn't been used in 60+ days
 - [ ] Update the "System Status" block in INDEX.md
 - [ ] Trim any file that has exceeded the 400-line threshold
 
@@ -134,11 +132,11 @@ Save this as `knowledge/system-maintenance.sh` and run with `bash knowledge/syst
 
 Watch for these failure modes:
 
-**Over-accumulation:** Files keep getting added, nothing gets archived. The INDEX grows beyond 100 lines. Loading instructions start saying "load most files."
+**Over-accumulation:** Files keep getting added, nothing gets archived. The INDEX grows beyond 80 lines. Loading instructions start saying "load most files."
 
-**Rule calcification:** Rules haven't been updated in months despite changed context. Hypotheses sit at "active" forever. The false-beliefs log has no entries.
+**Rule calcification:** Rules haven't been updated despite changed context. Hypotheses sit at "active" indefinitely. No hypotheses have been rejected in months.
 
-**Knowledge fragmentation:** The same information exists in multiple files with slight differences. Contradictions appear between platform rules and craft rules.
+**Knowledge fragmentation:** The same information exists in multiple files with slight differences. Contradictions appear between files.
 
 **Agent confusion:** The agent frequently asks "which file should I load?" or loads too many files "just in case."
 
